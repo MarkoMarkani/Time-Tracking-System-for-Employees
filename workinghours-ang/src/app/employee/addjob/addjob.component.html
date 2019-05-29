@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="../joblist">Job List<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../paymentlist">Payment List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../vacationlist">Vacation List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../holidaylist">Holiday list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../holidaytype">Holiday Type</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<h3>Add a new job position</h3>
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()">
+
+      <!-- <div class="form-group">
+          <label for="jobid">Job ID</label>
+          <input type="text" class="form-control" id="jobid" required [(ngModel)]="job.jobid" name="jobid" placeholder="Job ID">
+        </div> -->
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="job.name" name="name" placeholder="Name">
+    </div>
+ 
+    <div class="form-group">
+      <label for="commission">Commission</label>
+      <input type="text" class="form-control" id="commissionpct" required [(ngModel)]="job.commissionpct" name="commissionpct" placeholder="Commission">
+    </div>
+
+   <button type="submit" class="btn btn-success"  >Save</button> 
+  </form>
+</div>
+  <router-outlet></router-outlet>

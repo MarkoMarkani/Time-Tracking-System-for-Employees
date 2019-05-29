@@ -1,0 +1,29 @@
+<div class="row" *ngIf="'jobname!==null'">
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">MENU</div>
+    <div class="list-group list-group-flush">
+      <!-- <a routerLink=":id/welcome" class="list-group-item list-group-item-action bg-light">Employee Check in</a> -->
+      <a [routerLink]="['../'+employeeid+'/info']" class="list-group-item list-group-item-action bg-light">Info</a>
+      <a [routerLink]="['../'+employeeid+'/record']" class="list-group-item list-group-item-action bg-light">Record</a>
+      <!-- <a routerLink=":id/payment" class="list-group-item list-group-item-action bg-light">Employee Payment List</a> -->
+      <a [routerLink]="['../'+employeeid+'/stats']" class="list-group-item list-group-item-action bg-light">Statistics</a>
+      <div *ngIf="jobname==='admin'">
+      <a [routerLink]="['../'+employeeid+'/employeelist']" class="list-group-item list-group-item-action bg-light">Employees</a>
+      <div *ngIf="jobname">
+        
+            
+            
+      </div>
+      
+        </div>
+        <div *ngIf="jobname==='admin'">
+            <a routerLink="joblist" class="list-group-item list-group-item-action bg-light">Settings</a>
+              </div>
+        <a class="nav-link" (click)="onLogOut()"><button class="btn btn-primary" >Logout</button></a>
+    </div>
+  </div>
+  <div class="col-md-9">
+       
+    <router-outlet></router-outlet>
+  </div>
+</div>

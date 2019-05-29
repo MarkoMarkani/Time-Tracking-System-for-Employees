@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="../joblist">Job List<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../paymentlist">Payment List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../vacationlist">Vacation List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../holidaylist">Holiday list</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../holidaytype">Holiday Type</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-10">
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th> 
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">From date</th>
+      <th scope="col">To date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vacation of vacations | async">
+     
+      <td>{{vacation.vacationid}}</td>
+      <td>{{vacation.employee.firstname}}</td>
+      <td>{{vacation.employee.lastname}}</td>
+      <td>{{vacation.fromdate | date}}</td>
+      <td>{{vacation.todate | date}}</td>
+      
+  </table>
+  
+  <router-outlet></router-outlet> 
+  </div>

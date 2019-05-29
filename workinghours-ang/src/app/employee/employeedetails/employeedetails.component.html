@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="../info">General Info<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../editinfo">Edit your info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../payment">Payments</a>
+      </li>
+     
+
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../vacation">Vacations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../holidayperemployee">Holidays</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="../jobhistory">Job History</a>
+      </li>
+
+      <div *ngIf="jobname==='admin'">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../workingdays">Working Days</a>
+        </li>
+      </div>
+     
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <h2 >Your personal details are listed below</h2>
+  <br>
+  <hr>
+  <p class="lead">Employee information:</p>
+  <hr class="my-4">
+  <div *ngIf="employee">
+  <p><b>Active:  </b> {{employee.active}}</p>
+  <p><b>Username:  </b> {{employee.username}}</p>
+  <p><b>Hire date:  </b> {{employee.hiredate}}</p>
+  <p><b>Email:  </b> {{employee.email}}</p>
+  <p><b>First name:  </b> {{employee.firstname}}</p>
+  <p><b>Last name:  </b> {{employee.lastname}}</p>
+  <p><b>Salary:  </b> {{employee.salary}}</p>
+  <p><b>Job:  </b> {{employee.job.name}}</p>
+  <p><b>Awerage hours:  </b> {{employee.averageWork | number : '1.2-2'}}</p>
+  </div>
+</div>
+          

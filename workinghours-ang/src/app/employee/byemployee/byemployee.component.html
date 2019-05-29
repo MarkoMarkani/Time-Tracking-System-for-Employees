@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h1 >Your personal details are listed below</h1>
+  <p class="lead">Employee information:</p>
+  <hr class="my-4">
+  <div *ngIf="employee.job">
+  <p><b>Name:</b> {{employee.firstname}}</p>
+  <p><b>Surname:</b> {{employee.lastname}}</p>
+  <p><b>Email:</b> {{employee.email}}</p>
+  <p><b>Job position:</b> {{employee.job.name}}</p>
+  <p><b>Employment salary:</b> {{employee.salary}}</p>
+  </div>
+  <button class="button" routerLink="../addjob">Add new Job</button>
+  <button class="button" routerLink="../addholiday">Add holiday</button>
+  <button class="button" routerLink="../vacation">Add vacation</button>
+  <button class="button" routerLink="../executepayment">Execute payment</button>
+</div>
+          

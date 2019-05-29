@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="../record">General Record<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container text-center">
+  <p class="message">{{message}}</p>
+  <br>
+  <button class="btn btn-secondary" (click)="checkIn()">Check in</button>
+  <button class="btn btn-light" (click)="checkOut()">Check out</button>
+  <hr>
+  <button class="btn btn-secondary" (click)="pauseOn()">Pause on</button>
+  <button class="btn btn-light" (click)="pauseOff()">Pause off</button>
+ 
+</div>
+<br>
+<table mdbTable striped="true">
+  <thead>
+    <tr>
+      <th scope="col">Working day</th>
+      <th scope="col">Week day</th>
+      <th scope="col">Check in time</th>
+      <th scope="col">Check out time</th>
+      <th scope="col">Daily duration (minutes)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let workingday of workingdays | async">
+      <td>{{workingday.workingdayid}}</td>
+      <td>{{workingday.weekday.name}}</td>
+      <td>{{workingday.checkin | date:'medium' }}</td>
+      <td>{{workingday.checkout | date:'medium' }}</td>
+      <td>{{workingday.workDuration | number : '1.2-2'}}</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Breaks</h4>
+<table mdbTable striped="true">
+    <thead>
+      <tr>
+        <th scope="col">Working day</th>
+        
+        <th scope="col">Started</th>
+        <th scope="col">Ended</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let break of breaks | async">
+        <td>{{break.workingday.workingdayid}}</td>
+        <td>{{break.started}}</td>
+        <td>{{break.ended}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
